@@ -76,18 +76,18 @@ app.post('/people', async (req, res) => {
 
 // Update
 app.put('/people/:id', async (req, res) => {
-    try { 
-        res,json (await People.findByIDandUpdate(
+    try {
+        res.json(await People.findByIdAndUpdate(
             req.params.id, 
-            req.body,
-            { new: true}
+            req.body, 
+            { new: true }
         ));
+
     } catch (error) {
         console.log('error: ', error);
         res.json({error: 'something went wrong - check console'});
-
     }
-})
+});
 
 // Delete
 
